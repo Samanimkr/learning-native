@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,14 +16,20 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
+    var imageInfo = {
+      uri: 'https://i.ytimg.com/vi/YCaGYUIfdy4/maxresdefault.jpg',
+      description: 'cat photo'
+    }
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}>Welcome to My RN App!</Text>
+        {/* <Image
+          style={{width: 100, height: 100}}
+          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+        /> */}
+        <Image style={styles.cat} source={imageInfo} ></Image>
       </View>
     );
   }
@@ -41,9 +47,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  cat: {
+    width: 100,
+    height: 100
   },
 });
